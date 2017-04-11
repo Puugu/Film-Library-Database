@@ -33,14 +33,14 @@ create table songs(
 create table composers(
   "firstName" varchar(15),
   "lastName" varchar(15),
-  "birthYear" int,
+  "birthDate" date,
   primary key ("lastName")
 );
 
 create table musicians(
   "firstName" varchar(15),
   "lastName" varchar(15),
-  "birthYear" int,
+  "birthDate" date,
   "instrument" varchar(15),
   primary key ("lastName")
 );
@@ -55,14 +55,14 @@ create table award(
 create table directors(
   "firstName" varchar(15),
   "lastName" varchar(15),
-  "birthYear" int,
+  "birthDate" date,
   primary key ("lastName")
 );
   
   create table performers(
     "firstName" varchar(15),
     "lastName" varchar(15),
-    "birthYear" int,
+    "birthDate" date,
     "role" varchar(30),
     primary key ("lastName")
 );
