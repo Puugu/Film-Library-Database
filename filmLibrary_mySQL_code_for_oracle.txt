@@ -1,0 +1,82 @@
+create table film (
+   "filmTitle" varchar(30),
+   "releaseYear" int,
+   "runtime" int,
+   "format" varchar(10),
+   primary key (filmTitle, releaseYear)
+);
+
+create table producers (
+  "pName" varchar(30),
+  primary key (pName)
+);
+
+create table rating(
+  "ratingOrg" varchar(30),
+  "ratingLevel" varchar(5),
+  primary key (ratingOrg, ratingLevel)
+);
+
+create table soundtrack(
+  "soundTrackTitle" varchar(30),
+  "filmTitle" varchar(30),
+  foreign key ("filmTitle") references film("filmTitle"),
+  primary key ("soundTrackTitle")
+);
+
+create table songs(
+  "songTitle" varchar(30),
+  "trackLength" int,
+  primary key ("songTitle")
+);
+
+create table composers(
+  "firstName" varchar(15),
+  "lastName" varchar(15),
+  "birthYear" int,
+  primary key ("lastName")
+);
+
+create table musicians(
+  "firstName" varchar(15),
+  "lastName" varchar(15),
+  "birthYear" int,
+  "instrument" varchar(15),
+  primary key ("lastName")
+);
+
+create table award(
+  "awardYear" int,
+  "awardOrganization" varchar(25),
+  "awardTitle" varchar(25),
+  primary key ("awardTitle", "awardYear")
+);
+
+create table directors(
+  "firstName" varchar(15),
+  "lastName" varchar(15),
+  "birthYear" int,
+  primary key ("lastName")
+);
+  
+  create table performers(
+    "firstName" varchar(15),
+    "lastName" varchar(15),
+    "birthYear" int,
+    "role" varchar(30),
+    primary key ("lastName")
+);
+
+create table TVseason(
+  "seriesTitle" varchar(30),
+  "seasonNumber" int,
+  primary key ("seriesTitle", "seasonNumber")
+);
+
+create table episode(
+  "episodeName" varchar(20),
+  "episodeNumber" int,
+  "seriesTitle" varchar(30),
+  foreign key ("seriesTitle") references TVseason("seriesTitle"),
+  primary key ("seriesTitle", "episodeNumber")
+);
