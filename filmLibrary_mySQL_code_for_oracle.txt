@@ -20,7 +20,8 @@ create table rating(
 create table soundtrack(
   soundTrackTitle varchar(30),
   "filmTitle" varchar(30),
-  foreign key ("filmTitle") references "film"("filmTitle"),
+  "releaseYear" int,
+  foreign key ("filmTitle","releaseYear") references film(filmTitle,releaseYear),
   primary key (soundTrackTitle)
 );
 
@@ -76,7 +77,8 @@ create table TVseason(
 create table episode(
   episodeName varchar(20),
   episodeNumber int,
-  seriesTitle varchar(30),
-  foreign key (seriesTitle) references TVseason("seriesTitle"),
-  primary key (seriesTitle, episodeNumber)
+  "seriesTitle" varchar(30),
+  "seasonNumber" int,
+  foreign key ("seriesTitle","seasonNumber") references TVseason("seriesTitle", "seasonNumber"),
+  primary key ("seriesTitle", "seasonNumber", episodeNumber)
 );
